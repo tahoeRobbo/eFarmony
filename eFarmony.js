@@ -37,7 +37,8 @@ animals.push(sol);
 var quackers = {
 	username : 'dirtyDuck',
 	tagline : 'Im just a dirty ole duck',
-	noises : ['wakka flakka', 'quack', 'bliggidy bloggidy bloo']
+	noises : ['wakka flakka', 'quack', 'bliggidy bloggidy bloo'],
+	friends : []
 };
 animals[animals.length] = quackers;
 console.log(animals);
@@ -45,13 +46,15 @@ console.log(animals);
 var suze = {
 	username : 'Suzy Q',
 	tagline : 'I do what I do, Cuz I\'m Suzy Q!',
-	noises : ['chicka chicka', 'boopy doopy', 'ooooooh hehehe']
+	noises : ['chicka chicka', 'boopy doopy', 'ooooooh hehehe'],
+	friends : []
 };
 
 var sallySalmon = {
 	username : 'sallySalmon',
 	tagline : 'I\'m just a cold wet fish',
-	noises : ['I dunno..', 'This doesn\'nt seem smart']
+	noises : ['I dunno..', 'This doesn\'nt seem smart'],
+	friends : []
 };
 
 animals.push(suze, sallySalmon);
@@ -93,13 +96,20 @@ console.log(sheep);
 
 var addFriend = function(user, friend) {
 	user.friends.push(friend.username);
+	if(arguments.length > 2) {
+		for(var i = 2; i < arguments.length; i++) {
+			user.friends.push(arguments[i].username);
+		}
+	}
 };
 
-var myFarm = [sheep, dog, kitty];
-addFriend(dog, kitty);
-addFriend(kitty, sheep);
-addFriend(kitty, dog);
-addFriend(sheep, dog);
+var myFarm = [sheep, dog, kitty, sallySalmon, suze, quackers];
+addFriend(dog, kitty, sheep, suze);
+addFriend(kitty, sheep, dog, quackers);
+addFriend(sheep, dog, kitty);
+addFriend(quackers, dog, kitty, sheep);
+addFriend(sallySalmon, sallySalmon);
+addFriend(suze, kitty, dog, sheep, quackers, suze);
 
 console.log(myFarm);
 
