@@ -12,6 +12,7 @@ console.log(noiseArray.length);
 	sol.username = 'Lil Kitty';
 	sol.tagline = "I'm a Kitty!!";
 	sol.noises = noiseArray;
+	sol.friends = [];
 
 for(prop in sol) {
 	if(prop === 'username') {
@@ -103,13 +104,14 @@ var addFriend = function(user, friend) {
 	}
 };
 
-var myFarm = [sheep, dog, kitty, sallySalmon, suze, quackers];
+var myFarm = [sol, sheep, dog, kitty, sallySalmon, suze, quackers];
 addFriend(dog, kitty, sheep, suze);
 addFriend(kitty, sheep, dog, quackers);
 addFriend(sheep, dog, kitty);
 addFriend(quackers, dog, kitty, sheep);
 addFriend(sallySalmon, sallySalmon);
 addFriend(suze, kitty, dog, sheep, quackers, suze);
+addFriend(sol, sol, kitty, dog, sheep, quackers, suze, sallySalmon);
 
 console.log(myFarm);
 
@@ -131,6 +133,9 @@ var giveMatches = function(farm) {
 
 giveMatches(myFarm);
 console.log(myFarm);
+
+//Added to test branches / merges
+
 
 
 
