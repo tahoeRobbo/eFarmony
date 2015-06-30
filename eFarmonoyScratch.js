@@ -1,3 +1,6 @@
+//write animal constructor and function that will loop through array and create 
+//animal objects from array
+
 var AnimalMaker = function(name) {
 	return {
 		speak : function() {
@@ -12,7 +15,7 @@ var animalNames = ['Sol', 'Jackson', 'Roh', 'Lah'];
 var animalLooper = function(arr) {
 	var animalObjArray = [];
 	for(var i = 0; i < arr.length; i++) {
-		animalObjArray.push(new AnimalMaker(arr[i]));
+		animalObjArray.push(AnimalMaker(arr[i]));
 	}
 	return animalObjArray;
 };

@@ -57,4 +57,94 @@ var sallySalmon = {
 animals.push(suze, sallySalmon);
 console.log(animals);
 
+//FUNCTIONS
+
+var AnimalTestUser = function(username) {
+	var otherArgs = [];
+	if(arguments.length > 1) {
+		for(var i = 1; i < arguments.length; i++) {
+			otherArgs.push(arguments[i]);
+		}
+	}
+	return {
+		username : username,
+		otherArgs : otherArgs
+	};
+};
+
+var testSheep = AnimalTestUser('Baaahsack', {'loves dancing' : true}, [1,2,3] );
+console.log(testSheep);
+
+var AnimalCreator = function(username, species, tagline, noises) {
+	return {
+		username : username,
+		species : species,
+		tagline : tagline, 
+		noises : noises,
+		friends :[]
+	};
+};
+
+var sheep = AnimalCreator('Cloud', 'sheep', 'count on me to fall asleep!', ['mmmm', 'baaaaaaah', 'bawww-yeaah!!']);
+var dog = AnimalCreator('Woofer', 'dog', 'Ay im a dog!', ['rrrrrrRuf!', 'Barowrorw', 'grape']);
+var kitty = AnimalCreator('MisterWhiskers', 'kitty', ['mrow', 'prrr']);
+
+console.log(sheep);
+
+var addFriend = function(user, friend) {
+	user.friends.push(friend.username);
+};
+
+var myFarm = [sheep, dog, kitty];
+addFriend(dog, kitty);
+addFriend(kitty, sheep);
+addFriend(kitty, dog);
+addFriend(sheep, dog);
+
+console.log(myFarm);
+
+var addMatchesArray = function(arr) {
+	for(var i = 0; i < arr.length; i++) {
+		arr[i].matches = [];
+	}
+};
+
+addMatchesArray(myFarm);
+
+console.log(myFarm);
+
+var giveMatches = function(farm) {
+	for(var i = 0; i < farm.length; i++) {
+		farm[i].matches = farm[i].friends[Math.floor(Math.random() * farm[i].friends.length)];
+	}
+};
+
+giveMatches(myFarm);
+console.log(myFarm);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
